@@ -1,3 +1,5 @@
+const User=require('../models/user')
+
 module.exports.profile=function(req,res){
     return res.render('user_profile',{
         Title:'Profile'
@@ -19,11 +21,32 @@ module.exports.signIn=function(req,res){
 }
 
 //get the signUp data
-module.exports.create=function(req,res){
-    //TODo later
+module.exports.create = function (req, res) {
+    if (req.body.password != req.body.confirm_password) {
+        //req.flash(`error_message`,`password Doesn't match please try again`);
+        return res.redirect('back');
+    }
+    User.findOne({ email: req.body.email }, function (err, user) {
+        if (err) { console.log('error in finding user in signing up'); return }
+
+        if (!user) {
+            User.create(req.body, function (err, user) {
+                if (err) { 
+                    console.log('Error in creating user while signing up'); 
+                    return }
+                    
+                // req.flash('success_message','Register Successfully ! Login here');
+                return res.redirect('/users/sign-in');
+            })
+        } else {
+            return res.redirect('back');
+        }
+
+    });
 }
 
 //sign in and create a session for user
 module.exports.createSession=function(req,res){
     //TODo later
+    return res.redirect('back');
 }
