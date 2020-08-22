@@ -22,8 +22,6 @@ app.use(expressLayouts);
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
 
-//use express router
-app.use('/',require('./routes'));
 
 //set up the view engine
 app.set('view engine','ejs');
@@ -43,6 +41,11 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(passport.setAuthenticatedUser);
+
+//use express router
+app.use('/',require('./routes'));
 
 app.listen(port,function(err){
     if(err){
