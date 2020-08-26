@@ -9,6 +9,7 @@ console.log('router loaded')
 router.get('/',homeController.home);
 router.use('/users',require('./users'));
 router.use('/posts',require('./posts'));
+router.use('/comments',require('./comments'));
 
 //for further to link other router given syntax
 //router.use('/routername',require('./routerfile'))

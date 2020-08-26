@@ -1,23 +1,23 @@
 const mongoose=require('mongoose');
+const post= require('../routes/posts');
 
-const postSchema=new mongoose.Schema({
+const commentSchema=new mongoose.Schema({
     content:{
         type:String,
         required:true
     },
+    //comments belong to the user
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
-    //include the array ogf ids of all comments of this schema itself
-    comments:[{
+    post:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'comment'
-    }]
+        ref:'Post'
+    }
 },{
     timestamps:true
 });
 
-const Post =mongoose.model('Post',postSchema);
-module.exports=Post;
-
+const Comment=mongoose.model('Comment',commentSchema);
+module.exports=Comment;
