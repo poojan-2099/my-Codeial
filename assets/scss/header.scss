@@ -1,0 +1,14 @@
+header{
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+    }
+    h3{
+    color: white;
+    }
+    li{
+        a{
+            text-decoration: none !important;
+        }
+    }
+}

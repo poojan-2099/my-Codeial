@@ -1,18 +1,24 @@
-<header>
-    Page header
-    <ul>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/header.css">
+<header class="navbar navbar-expand-lg text-white bg-secondary d-flex justify-content-between">
+    <div>
+        <h3>Codeial</h3>
+    </div>
+    <div>
+    <ul class="navbar-nav mr-auto">
         <% if (locals.user) { %>
-            <li>Hello <a href="/users/profile"><%= user.username%>!</a></li>
-            <li>
-                <a href="/users/sign-out">Sign Out</a>
+            <li class="nav-item">Hello <a class="nav-link" href="/users/profile"><%= user.username%>!</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users/sign-out">Sign Out</a>
             </li>
         <% } else { %>
-            <li>
-                <a href="/users/sign-in">Sign In</a>
+            <li class="nav-item text-white">
+                <a class="nav-link" href="/users/sign-in">Sign In</a>
             </li>
-            <li>
-                <a href="/users/sign-up">Sign Up</a>
+            <li class="nav-item text-white">
+                <a class="nav-link" href="/users/sign-up">Sign Up</a>
             </li>
         <% } %>
     </ul>
+    </div>
 </header>

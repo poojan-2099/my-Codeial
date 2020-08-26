@@ -1,0 +1,9 @@
+header .navbar {
+  display: flex;
+  justify-content: space-between; }
+
+header h3 {
+  color: white; }
+
+header li a {
+  text-decoration: none !important; }
