@@ -10,6 +10,16 @@ module.exports.profile=function(req,res){
     
 }
 
+module.exports.update=function(req,res){
+    if(req.user.id == req.params.id){
+        User.findByIdAndUpdate(req.params.id, req.body ,function(req,res){
+            return res.redirect('back');
+        });
+    }else{
+        return res.status(401).send('Unauthorized');
+    }
+}
+
 //render the signup page
 module.exports.signUp=function(req,res){
     //setting up that page is not shown after sign-up
