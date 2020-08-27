@@ -1,5 +1,4 @@
 const mongoose=require('mongoose');
-const post= require('../routes/posts');
 
 const commentSchema=new mongoose.Schema({
     content:{
