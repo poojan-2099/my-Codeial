@@ -1,32 +1,33 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<div class="my-4">
-        <h1>Codeial /<%= Title%></h1>
+<link rel="stylesheet" href="/css/home.css">
+
+<div id="home-container">
+        <section id="feed-posts">
+                <h4>Posts</h4>
+                <% if(locals.user){ %>
+                <form action="/posts/create" id="new-post-form" method="POST">
+                        <textarea name="content" cols="30" rows="3" placeholder="Type here.." required></textarea>
+                        <input type="submit" value="Post">
+                </form>
+                <% } %>
+                <div id="posts-list-container">
+                        <ul>
+                                <% for(post of posts){ %>
+
+                                        <%- include('_post') -%>
+
+                                <% } %>
+                        </ul>
+                </div>
+        </section>
+
+        <section id="user-friends">
+                <h4>Friends</h4>
+                <% for(u of all_users) { %>
+                <p>
+                        <a href="/users/profile/<%= u.id %>"><%= u.username%></a>
+                </p>
+                <% } %>
+        </section>
 </div>
-<section id="feed-posts">
-        <h4>Posts</h4>
-        <% if(locals.user){ %>
-        <form action="/posts/create" id="new-post-form" method="POST">
-                <textarea name="content" cols="30" rows="3" placeholder="Type here.." required></textarea>
-                <input type="submit" value="Post">
-        </form>
-        <% } %>
-        <div id="posts-list-container">
-                <ul>
-                        <% for(post of posts){ %>
-
-                                <%- include('_post') -%>
-
-                        <% } %>
-                </ul>
-        </div>
-</section>
-
-<section id="user-friends">
-        <h4>Friends</h4>
-        <% for(u of all_users) { %>
-        <p>
-                <a href="/users/profile/<%= u.id %>"><%= u.username%></a>
-        </p>
-        <% } %>
-</section>
