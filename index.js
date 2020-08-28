@@ -10,7 +10,10 @@ const passport=require('passport')
 const passportLocal=require('./config/passport-local-strategy');
 const Mongostore=require('connect-mongo')(session);
 //setting up saas
-const saasMiddleware=require('node-sass-middleware')
+const saasMiddleware=require('node-sass-middleware');
+//setting up flash
+const flash=require('connect-flash');
+const customMware=require('./config/middleware');
 
 
 app.use(saasMiddleware({
@@ -65,6 +68,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+
+//using flash
+app.use(flash());
+app.use(customMware.setFlash);
 
 //use express router
 app.use('/',require('./routes'));
