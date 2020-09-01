@@ -13,12 +13,16 @@
                 success:function(data){
                     let newPost= newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
-                    deletePost($(' .delete-post-button',newPost))
+                    success_noty('Posted successfully');
+                    deletePost($(' .delete-post-button',newPost));
+                    
                 },
                 error:function(error){
+                    erorr_noty("Error in creating Post")
                     console.log(error.responseText);
                 }
-            })
+            });
+            $('.post1')[0].reset();
         });
     }
 
@@ -59,7 +63,7 @@
 
     //method to delete a post from dom
     let deletePost=function(deleteLink){
-        $(deleteLink.click(function(e){
+        $(deleteLink).click(function(e){
             e.preventDefault();
 
             $.ajax({
@@ -67,14 +71,49 @@
                 url:$(deleteLink).prop('href'),
                 success:function(data){
                     $(`#post-${data.data.post_id}`).remove();
+                    erorr_noty("Post Deleted!")
                 },
                 error:function(error){
                     console.log(error.responseText);
+                    erorr_noty("Error in Post Deleting!")
                 }
             })
-        }))
+        });
     }
 
+    let success_noty=function(text){
+        new Noty({
+            theme: 'relax',
+            text: text,
+            type: 'success',
+            layout: 'topRight',
+            timeout: 1500
+
+        }).show();
+    }
+
+    let erorr_noty=function(text){
+    new Noty({
+        theme: 'relax',
+        text: text,
+        type: 'error',
+        layout: 'topRight',
+        timeout: 1500
+
+    }).show();
+}
+
+    
+let apply_dynamic_delete_to_existing_post = function ()
+{
+    for (let link of $('.delete-post-button'))
+    {
+        deletePost(link)
+    }
+}    
+apply_dynamic_delete_to_existing_post();
+   
     createPost();
 }
+
 
