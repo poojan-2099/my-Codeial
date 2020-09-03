@@ -31,18 +31,18 @@
     let newPostDom=function(post){
         return $(`
         <li id="post-${post._id}">
-            <p>
-               
-                <small>
-                    <a class="delete-post-button" href="/posts/destroy/${ post._id }">X</a>
-                </small>
-                
+            <div class="post-display">
                 ${ post.content }
-                <br>
                 <small>
+                    <a class="delete-post-button" href="/posts/destroy/${ post._id }"><i class='fas fa-trash-alt'></i></a>
+                </small>
+                </div>
+            <div>
+                <small>
+                    <img src="${ post.user.avatar }" alt="${ post.user.username}" width="30" style="border-radius: 50%;">
                     ${ post.user.username }
                 </small>
-            </p>
+            </div>
             <div class="post-comments">
                 <div class="post-comments-list">
                     <ul id="post-comments-${ post._id }">

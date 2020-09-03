@@ -33,7 +33,7 @@
             <p>
                 
                         <small>
-                            <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
+                            <a class="delete-comment-button" href="/comments/destroy/${comment._id}"><i class="far fa-times-circle"></i></a>
                         </small>
                    
                 

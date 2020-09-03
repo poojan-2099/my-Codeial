@@ -1,14 +1,23 @@
 header{
+    background-color: gainsboro;
     .navbar{
         display: flex;
         justify-content: space-between;
     }
     h3{
-    color: white;
-    }
-    li{
-        a{
-            text-decoration: none !important;
+    color: black;
+        a:hover{
+            text-decoration: none;
         }
     }
+    li{
+        a:link{
+            color: black !important;
+        }
+    }
+}
+
+.navbar-nav{
+    font-weight: 500;
+    font-size: 1.2rem;
 }

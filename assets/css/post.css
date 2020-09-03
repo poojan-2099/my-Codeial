@@ -1,0 +1,5 @@
+.post-display {
+  display: flex;
+  justify-content: space-between; }
+  .post-display small {
+    padding: 8px; }

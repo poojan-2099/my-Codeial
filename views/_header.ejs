@@ -1,13 +1,14 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/header.css">
-<header class="navbar navbar-expand-lg text-white bg-secondary d-flex justify-content-between">
+<header class="navbar navbar-expand-lg d-flex justify-content-between">
     <div>
-        <h3>Codeial</h3>
+        <h3><a href="/"> Codeial </a></h3>
     </div>
     <div>
     <ul class="navbar-nav mr-auto">
         <% if (locals.user) { %>
-            <li class="nav-item">Hello <a class="nav-link" href="/"><%= user.username%>!</a></li>
+            <li class="nav-item"><img src="<%= user.avatar %>" alt="<%= user.username %>" width="90" style="border-radius: 50%;"></li>
+            <li class="nav-item"><a class="nav-link" href="/users/profile/<%= user.id %>"><%= user.username%></a></li>
             <li class="nav-item">
                 <a class="nav-link" href="/users/sign-out">Sign Out</a>
             </li>

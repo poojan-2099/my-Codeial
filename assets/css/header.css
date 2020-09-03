@@ -1,9 +1,15 @@
-header .navbar {
-  display: flex;
-  justify-content: space-between; }
+header {
+  background-color: gainsboro; }
+  header .navbar {
+    display: flex;
+    justify-content: space-between; }
+  header h3 {
+    color: black; }
+    header h3 a:hover {
+      text-decoration: none; }
+  header li a:link {
+    color: black !important; }
 
-header h3 {
-  color: white; }
-
-header li a {
-  text-decoration: none !important; }
+.navbar-nav {
+  font-weight: 500;
+  font-size: 1.2rem; }
