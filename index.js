@@ -8,6 +8,8 @@ const db=require('./config/mongoose');
 const session=require('express-session');
 const passport=require('passport')
 const passportLocal=require('./config/passport-local-strategy');
+const passportJWT=require('./config/passport-jwt-strategy')
+
 const Mongostore=require('connect-mongo')(session);
 //setting up saas
 const saasMiddleware=require('node-sass-middleware');
