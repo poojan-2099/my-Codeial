@@ -2,7 +2,7 @@ const nodeMailer=require('../config/nodemailer');
 
 //this is new way to exporting method
 exports.newComment=(comment)=>{
-    let htmlString=nodeMailer.renderTemplate({coment:comment},'/comments/new_comment.ejs')
+    let htmlString=nodeMailer.renderTemplate({comment:comment},'/comments/new_comment.ejs')
 
     nodeMailer.transporter.sendMail({
         from:'apix.com',
